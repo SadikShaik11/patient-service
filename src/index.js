@@ -5,14 +5,14 @@ let server;
 try {
  const options ={
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 }
+let port =8000
   mongoose
-    .connect('mongodb+srv://sadik:zLNA1fXmcRGjKVgC@cluster0.k4jul.mongodb.net/test',options )
+    .connect(`mongodb://localhost:27017`,options )
     .then(() => {
-      logger.info("Connected to MongoDB");
-      server = app.listen(8000, () => {
-        console.log(8000);
+      server = app.listen(port, () => {
+        console.log("listening to the port ",port);
       });
     });
 } catch (error) {
