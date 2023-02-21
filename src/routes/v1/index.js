@@ -1,7 +1,7 @@
 import express from "express";
 const router = express.Router();
-import receptionRote from "./receptionRoute";
+import receptionRote from "./receptionRoute.js";
 
-router.route.use("/reception", receptionRote);
+router.use("/reception", receptionRote.router);
 
 export { router };

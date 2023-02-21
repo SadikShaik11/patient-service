@@ -1,7 +1,7 @@
-import express from "express"
-import  cors from "cors"
-import routes from "./routes/v1"
-import  ApiError from "./utils/ApiError"
+import express from "express";
+import cors from "cors";
+import { router } from "../src/routes/v1/index.js";
+import { ApiError } from "./utils/ApiError.js";
 
 const app = express();
 
@@ -16,11 +16,11 @@ app.use(cors());
 app.options("*", cors());
 
 // v1 api routes
-app.use("/v1", routes);
+app.use("/v1", router);
 
 // send back a 404 error for any unknown api request
 app.use((req, res, next) => {
   next(new ApiError(404, "Not found"));
 });
-
-module.exports = app;
+console.log('running');
+export {app};
