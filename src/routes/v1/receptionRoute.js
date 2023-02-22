@@ -1,9 +1,11 @@
 import express from 'express'
 const router = express.Router()
 
-import {patientInfo} from '../../controllers/patientController.js'
+import {patientInfo,createPatentInfo} from '../../controllers/patientController.js'
+// to add patient info 
 router.get('/patientsInfo',patientInfo)
-router.post('/patientsInfo',patientInfo)
+// to get patient info
+router.post('/patientsInfo',createPatentInfo)
  export default {
     router
 }
